@@ -45,6 +45,7 @@ def search_exact_track(q,n,k):
     )
     response = requests.get('https://api.spotify.com/v1/search', headers=headers, params=params)
     tracks=response.json()
+    # This is the total number of tracks returned by the query
     total_n=tracks['tracks']['total']
     track_dict={str.lower(x['name']):x['external_urls']['spotify'] for x in list(tracks['tracks']['items'])}
     if q in track_dict:
