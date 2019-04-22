@@ -9,11 +9,9 @@ def client_credentials(encoded_key):
     headers = {
     'Authorization': 'Basic '+encoded_key,
     }
-
     data = {
       'grant_type': 'client_credentials'
     }
-
     response = requests.post('https://accounts.spotify.com/api/token', headers=headers, data=data)
     try:
         return response.json()['access_token']
